@@ -1,4 +1,4 @@
-const tabs = ({headerSelector, tabSelector, contentSelector, activeClass}) => {
+const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass }) => {
     const header = document.querySelector(headerSelector);
     const tab = document.querySelectorAll(tabSelector);
     const contents = document.querySelectorAll(contentSelector);
@@ -18,6 +18,20 @@ const tabs = ({headerSelector, tabSelector, contentSelector, activeClass}) => {
         tab[i].classList.add(activeClass);
     }
 
+    const switchTab = () => {
+        document.addEventListener('keydown', (e) => {
+            const target = e.target;
+            if (e.key === 'Enter') {
+                tab.forEach((tab, i) => {
+                    if (target == tab || target.parentNode == tab) {
+                        hideTabContent();
+                        showTabContent(i);
+                    }
+                });
+            }
+        });
+    }
+
     hideTabContent();
     showTabContent();
 
@@ -33,6 +47,10 @@ const tabs = ({headerSelector, tabSelector, contentSelector, activeClass}) => {
                 }
             });
         }
+    });
+
+    header.addEventListener('keydown', (e) => {
+        switchTab();
     });
 };
 
