@@ -17,13 +17,12 @@ const forms = () => {
 
     const postData = async (url, data) => {
         document.querySelector('.status').textContent = message.loading;
-        let res = await fetch(url, {
+        const res = await fetch(url, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-            //body: data
         });
 
         return await res.text();
@@ -39,7 +38,7 @@ const forms = () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            let statusMessage = document.createElement('div');
+            const statusMessage = document.createElement('div');
             statusMessage.classList.add('status');
             form.appendChild(statusMessage);
 
@@ -49,11 +48,8 @@ const forms = () => {
                 jsonData[key] = value;
             });
 
-            console.log(jsonData);
-
             postData('https://local-qpbb.onrender.com/api/data', jsonData)
                 .then(res => {
-                    console.log(res);
                     statusMessage.textContent = message.succes;
                 })
                 .catch(() => statusMessage.textContent = message.failure)
