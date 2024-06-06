@@ -1,11 +1,14 @@
 import modals from "./modules/modals";
 import forms from "./modules/forms";
-
 import tabs from "./modules/tabs";
+import changeModalState from "./modules/changeModalState";
 
 window.addEventListener('DOMContentLoaded', () => {
+    let modalState = {};
+
+    changeModalState(modalState);
     modals();
-    forms();
+    forms(modalState);
     tabs({
         headerSelector: ".glazing_slider",
         tabSelector: ".glazing_block",

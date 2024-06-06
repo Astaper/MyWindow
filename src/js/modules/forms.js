@@ -1,13 +1,10 @@
-const forms = () => {
+import checkNumInputs from "./checkNumInputs";
+
+const forms = (state) => {
     const form = document.querySelectorAll('form');
     const inputs = document.querySelectorAll('input');
-    const phoneInputs = document.querySelectorAll('input[name="user_phone"]');
 
-    phoneInputs.forEach(input => {
-        input.addEventListener('input', () => {
-            input.value = input.value.replace(/\D/, '');
-        });
-    });
+    checkNumInputs('input[name="user_phone"]');
 
     const message = {
         loading: 'Загрузка...',
@@ -34,6 +31,11 @@ const forms = () => {
         });
     };
 
+    const hideForm = () => {
+        document.querySelector('.popup_calc_end').style.display = 'none';
+        document.body.style.overflow = "";
+    };
+
     form.forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -43,6 +45,12 @@ const forms = () => {
             form.appendChild(statusMessage);
 
             const formData = new FormData(form);
+            if (form.getAttribute('data-calc') === "end") {
+                for (let key in state) {
+                    formData.append(key, state[key]);
+                }
+            }
+
             const jsonData = {};
             formData.forEach((value, key) => {
                 jsonData[key] = value;
@@ -57,7 +65,10 @@ const forms = () => {
                     clearInputs();
                     setTimeout(() => {
                         statusMessage.remove();
-                    }, 5000);
+                        if (form.getAttribute('data-calc') === "end") {
+                            hideForm();
+                        }
+                    }, 4000);
                 });
         });
     });
