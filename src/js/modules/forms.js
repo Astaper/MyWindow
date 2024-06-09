@@ -51,12 +51,12 @@ const forms = (state) => {
                 }
             }
 
-            const jsonData = {};
+            const data = {};
             formData.forEach((value, key) => {
-                jsonData[key] = value;
+                data[key] = value;
             });
 
-            postData('https://local-qpbb.onrender.com/api/data', jsonData)
+            postData('https://local-qpbb.onrender.com/api/data', data)
                 .then(res => {
                     statusMessage.textContent = message.succes;
                 })

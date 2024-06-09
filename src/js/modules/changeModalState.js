@@ -5,10 +5,11 @@ const changeModalState = (state) => {
     const windowWidth = document.querySelectorAll('#width');
     const windowHeight = document.querySelectorAll('#height');
     const windowType = document.querySelectorAll('#view_type');
-    const windowProfile = document.querySelectorAll('.checkbox');
+    const windowProfile = document.querySelectorAll('.c-checkbox input[type="radio"]');
 
     checkNumInputs('#width');
     checkNumInputs('#height');
+
 
     const bindActionToElems = (e, elem, prop) => {
         elem.forEach((item, i) => {
@@ -18,14 +19,12 @@ const changeModalState = (state) => {
                         state[prop] = i;
                         break;
                     case 'INPUT':
-                        if (item.getAttribute('type') === 'checkbox') {
-                            i === 0 ? state[prop] = "Холодное" : state[prop] = "Тёплое";
-                            elem.forEach((box, j) => {
+                        if (item.getAttribute('type') === 'radio') {
+                            state[prop] = item.value;
+                            elem.forEach((box) => {
                                 box.checked = false;
-                                if (i == j) {
-                                    box.checked = true;
-                                }
                             });
+                            item.checked = true;
                         } else {
                             state[prop] = item.value;
                         }
