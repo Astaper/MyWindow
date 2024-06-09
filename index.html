@@ -926,17 +926,26 @@
           <option value="overhang">Остекление с выносом</option>
         </select>
         <img src="./src/assets/img/modal_calc/icon_cold.png" alt="">
-        <label>
-          <input class="checkbox" type="checkbox" name="checkbox-test">
+        <!-- <label class="c-checkbox">
+          <input class="sr-only" type="checkbox" value="cold-checkbox" id="cold-checkbox" name="checkbox-test">
           <span class="checkbox-custom" id="cold"></span>
           <span class="label">Холодное</span>
         </label>
         <img src="./src/assets/img/modal_calc/icon_warm.png" alt="">
-        <label>
-          <input class="checkbox" type="checkbox" name="checkbox-test">
+        <label class="c-checkbox">
+          <input class="sr-only" type="checkbox" value="warm-checkbox" id="warm-checkbox" name="checkbox-test">
           <span class="checkbox-custom" id="warm"></span>
           <span class="label">Теплое</span>
-        </label>
+        </label> -->
+        <div class="c-checkbox">
+          <input class="sr-only" type="radio" value="cold" id="cold-checkbox" name="checkbox-test">
+          <label class="c-checkbox__label" for="cold-checkbox">Холодное</label>
+        </div>
+        <img src="./src/assets/img/modal_calc/icon_warm.png" alt="">
+        <div class="c-checkbox">
+          <input class="sr-only" type="radio" value="warm" id="warm-checkbox" name="checkbox-test">
+          <label class="c-checkbox__label" for="warm-checkbox">Теплое</label>
+        </div>
 
         <button class="button popup_calc_profile_button">Далее</button>
       </div>

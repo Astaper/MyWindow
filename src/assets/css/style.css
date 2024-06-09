@@ -1025,6 +1025,48 @@ textarea:focus {
   display: none;
 }
 
+.c-checkbox__label {
+  &:before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #c5c5c5;
+      margin-right: 8px;
+  }
+}
+
+.c-checkbox input[id="cold-checkbox"]:checked + .c-checkbox__label:before {
+  background: url(../img/modal_calc/check.png) center/12px no-repeat;
+}
+.c-checkbox input[id="warm-checkbox"]:checked + .c-checkbox__label:before {
+  background: url(../img/modal_calc/check_warm.png) center/12px no-repeat;
+}
+
+.c-checkbox input:focus + .c-checkbox__label {
+  outline: dashed 2px lightgrey;
+  outline-offset: 5px;
+}
+
+.c-checkbox input:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
 .popup_calc_profile_content .checkbox-custom {
   position: relative;
   width: 22px;
@@ -1048,6 +1090,7 @@ textarea:focus {
   bottom: 0;
   left: 0;
 }
+
 
 .checkbox-custom[id="cold"]::before {
   background: url(../img/modal_calc/check.png) center center no-repeat;
