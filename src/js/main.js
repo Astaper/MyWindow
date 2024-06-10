@@ -4,7 +4,7 @@ import tabs from "./modules/tabs";
 import changeModalState from "./modules/changeModalState";
 
 window.addEventListener('DOMContentLoaded', () => {
-    let modalState = {};
+    const modalState = {};
 
     changeModalState(modalState);
     modals();
