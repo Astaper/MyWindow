@@ -4,7 +4,7 @@ import timer from "./modules/timer";
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    const deadline = '2024-06-10';
+    const deadline = '2024-08-10';
 
     modals();
     tabs({
