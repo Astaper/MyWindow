@@ -1,5 +1,6 @@
 import modals from "./modules/modals";
 import tabs from "./modules/tabs";
+import images from "./modules/images";
 
 window.addEventListener('DOMContentLoaded', () => {
     modals();
@@ -15,4 +16,5 @@ window.addEventListener('DOMContentLoaded', () => {
         contentSelector: ".decoration_content > div > div",
         activeClass: "after_click"
     });
+    images();
 });
