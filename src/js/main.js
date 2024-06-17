@@ -1,9 +1,13 @@
 import modals from "./modules/modals";
 import forms from "./modules/forms";
 import tabs from "./modules/tabs";
+import timer from "./modules/timer";
 import changeModalState from "./modules/changeModalState";
 
 window.addEventListener('DOMContentLoaded', () => {
+
+    const deadline = '2024-08-10';
+
     const modalState = {};
 
     changeModalState(modalState);
@@ -21,6 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
         contentSelector: ".decoration_content > div > div",
         activeClass: "after_click"
     });
+    timer('.container1', deadline);
     tabs({
         headerSelector: ".balcon_icons",
         tabSelector: ".balcon_icons_img",
