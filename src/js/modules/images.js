@@ -20,7 +20,7 @@ const images = () => {
         if (target && target.classList.contains('preview')) {
             imgPopup.style.display = 'flex';
             const path = target.parentNode.getAttribute('href');
-            bigImage.setAttribute('dist', path);
+            bigImage.setAttribute('src', path);
         }
 
         if (target && target.matches('div.popups')) {
