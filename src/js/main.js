@@ -1,6 +1,7 @@
 import modals from "./modules/modals";
 import forms from "./modules/forms";
 import tabs from "./modules/tabs";
+import images from "./modules/images";
 import timer from "./modules/timer";
 import changeModalState from "./modules/changeModalState";
 
@@ -25,6 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
         contentSelector: ".decoration_content > div > div",
         activeClass: "after_click"
     });
+    images();
     timer('.container1', deadline);
     tabs({
         headerSelector: ".balcon_icons",
